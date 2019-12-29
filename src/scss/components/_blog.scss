@@ -1,0 +1,81 @@
+.blog {
+  width: 90%;
+
+  @include mappy-bp(tablet-vert) {
+    margin-bottom: 120px;
+  }
+
+  &__header {
+    max-width: 620px;
+    margin-bottom: 2em;
+  }
+
+  &__date {
+    color: $text;
+    font-size: 18px;
+    padding: 0;
+  }
+
+  &__heading {
+    line-height: 1.25em;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+
+  &__content {
+    p {
+      max-width: 620px;
+
+      code {
+        background-color: darken($brand, 15%);
+        padding: 0 5px;
+      }
+    }
+
+    figure {
+      margin-bottom: 1em;
+      display: block;
+
+      @include mappy-bp(tablet-vert) {
+        position: relative;
+        margin: 1em 0 2em;
+        padding-left: 50px;
+
+        &::before {
+          background-color: $text;
+          content: "";
+          display: block;
+          height: 84%;
+          left: 0;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 10000%;
+          z-index: 0;
+        }
+      }
+
+      img {
+        display: block;
+        height: auto;
+        width: 100%;
+
+        @include mappy-bp(tablet-vert) {
+          width: 680px;
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+  }
+
+  pre {
+    background-color: darken($brand, 15%);
+    border-bottom: 2px solid $text;
+    margin: 1em 0;
+    max-width: 620px;
+    padding: 20px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+}

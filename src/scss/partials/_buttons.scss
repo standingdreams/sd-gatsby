@@ -1,0 +1,32 @@
+.btn {
+  display: block;
+  font-size: 18px;
+  line-height: 1;
+  padding: 18px 0;
+  text-align: center;
+  width: 200px;
+}
+
+.btn1 {
+  background-color: $brand;
+  border: 2px solid #fff;
+  color: #fff;
+  text-transform: uppercase;
+  transition: ease all 0.3s;
+
+  @include mappy-bp(tablet-vert) {
+    &:hover {
+      background-color: #fff;
+      color: $text;
+    }
+  }
+}
+
+.btn2 {
+  background-color: $text;
+  color: white;
+  cursor: default;
+  width: auto;
+  padding: 18px;
+  text-transform: uppercase;
+}

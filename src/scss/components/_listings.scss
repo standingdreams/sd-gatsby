@@ -1,0 +1,321 @@
+.listings-wrapper {
+  overflow: hidden;
+  padding-bottom: 60px;
+
+  .container {
+    @include clearfix();
+
+    transform: translateX(8%);
+    transition: ease all 0.3s;
+  }
+}
+
+.listings-nav {
+  transition: ease all 0.3s;
+  width: 100%;
+  margin-bottom: 5%;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  li {
+    @include to_em(24px);
+
+    margin: 0;
+    padding: 0;
+  }
+
+  button {
+    color: $text;
+    font-weight: $bold;
+    opacity: 0.15;
+    transition: ease all 0.3s;
+    outline: none;
+
+    &:hover {
+      opacity: 0.25;
+    }
+
+    &.current__item {
+      opacity: 0.45;
+    }
+  }
+
+  @include mappy-bp(phone-medium) {
+    float: left;
+    width: 10%;
+    margin-bottom: 0;
+
+    ul {
+      display: block;
+    }
+
+    li {
+      display: block;
+      line-height: 32px;
+    }
+  }
+
+  @include mappy-bp(tablet-vert) {
+    width: 8%;
+
+    li {
+      line-height: 38px;
+    }
+  }
+
+  @include mappy-bp(tablet-horiz) {
+    width: 5%;
+  }
+}
+
+.listings-item {
+  left: 0;
+  position: absolute;
+  transition: ease all 0.3s;
+  width: 100%;
+
+  @for $i from 1 through 10 {
+    $eleMobile: ($i * 32)-32;
+    $topPosition: $eleMobile + px;
+
+    &:nth-child(#{$i}) {
+      transform: translateY($topPosition);
+    }
+  }
+
+  @include mappy-bp(tablet-vert) {
+    @for $i from 1 through 10 {
+      $ele: ($i * 38)-38;
+      $topPosition: $ele + px;
+
+      &:nth-child(#{$i}) {
+        transform: translateY($topPosition);
+      }
+    }
+  }
+
+  &__wrapper {
+    @include clearfix();
+
+    counter-reset: project-order;
+    float: left;
+    position: relative;
+    transition: ease all 0.3s;
+    width: 100%;
+
+    @include mappy-bp(phone-medium) {
+      width: 81%;
+    }
+
+    @include mappy-bp(tablet-vert) {
+      width: 84%;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    display: block;
+    transition: ease all 0.3s;
+
+    @include mappy-bp(phone-medium) {
+      float: right;
+    }
+
+    @include mappy-bp(tablet-vert) {
+      float: left;
+      width: 70%;
+    }
+
+    @include mappy-bp(tablet-horiz) {
+      max-width: 620px;
+      width: 46%;
+    }
+  }
+
+  &__name {
+    @include to_em(24px);
+
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-weight: $regular;
+    line-height: 32px;
+    opacity: 1;
+    transition: ease all 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include mappy-bp(tablet-vert) {
+      line-height: 38px;
+    }
+  }
+
+  &__role {
+    @include to_em(18px);
+    color: $text;
+    font-weight: $medium;
+    margin: 0;
+  }
+
+  &__role,
+  &__copy {
+    display: none;
+  }
+
+  &__role,
+  &__copy,
+  &__thumbnail {
+    opacity: 0;
+    position: relative;
+    transition: ease all 0.3s;
+  }
+
+  &__thumbnail {
+    img {
+      display: none;
+    }
+
+    @include mappy-bp(tablet-vert) {
+      float: right;
+      position: relative;
+      transition: ease all 0.3s;
+      width: 25%;
+      display: none;
+
+      &.js-vid {
+        cursor: pointer;
+      }
+
+      img {
+        border: 2px solid $brand;
+        display: block;
+        height: auto;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+      }
+
+      &::after {
+        background-color: #fff;
+        content: "";
+        display: block;
+        height: 100%;
+        left: -6px;
+        position: absolute;
+        top: 6px;
+        width: 100%;
+        z-index: 0;
+      }
+    }
+
+    @include mappy-bp(tablet-horiz) {
+      max-width: 565px;
+      width: 40%;
+    }
+  }
+}
+
+.listings-shown {
+  .container {
+    transform: translateX(0);
+  }
+
+  .listings-item {
+    display: none;
+
+    &.show-listings-item {
+      display: block;
+      position: relative;
+      transform: translateY(0);
+    }
+  }
+
+  .listings-item__wrapper {
+    width: 100%;
+  }
+
+  @include mappy-bp(phone-medium) {
+    .listings-item__wrapper {
+      width: 90%;
+    }
+  }
+}
+
+.show-listings-item {
+  .listings-item__role {
+    transform: translateY(0);
+    display: block;
+    opacity: 1;
+
+    @keyframes slideDownFirst {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @include animation-duration-name(0.4s, slideDownFirst);
+  }
+
+  .listings-item__copy {
+    transform: translateY(0);
+    opacity: 1;
+    display: block;
+
+    @keyframes slideDownSecond {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @include animation-duration-name(0.6s, slideDownSecond);
+  }
+
+  .listings-item__thumbnail {
+    opacity: 1;
+    display: block;
+    right: 0;
+    transform: translateX(0);
+
+    @keyframes slideRight {
+      0% {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @include animation-duration-name(0.6s, slideRight);
+  }
+
+  .listings-header {
+    margin-bottom: 20px;
+  }
+
+  .listings-item__name {
+    @include to_em(36px);
+  }
+}

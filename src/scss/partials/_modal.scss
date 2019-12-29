@@ -1,0 +1,88 @@
+.modal {
+  height: 360px;
+  left: 50%;
+  position: fixed;
+  top: -100%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 640px;
+  backface-visibility: hidden;
+  transition: ease all 0.3s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999;
+
+  &::after {
+    background-color: #fff;
+    content: "";
+    display: block;
+    height: 100%;
+    left: -6px;
+    position: absolute;
+    top: 6px;
+    width: 100%;
+    z-index: 0;
+    visibility: hidden;
+  }
+
+  iframe {
+    position: relative;
+    visibility: hidden;
+    z-index: 1;
+  }
+
+  span {
+    background-image: url(https://res.cloudinary.com/standingdreams/image/upload/sdsite/svg/close.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px auto;
+    cursor: pointer;
+    display: block;
+    height: 80px;
+    opacity: 0.8;
+    position: absolute;
+    right: -80px;
+    top: -80px;
+    transition: ease all 0.3s;
+    width: 80px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.modal__overlay {
+  backface-visibility: hidden;
+  background-color: $brand;
+  bottom: 0;
+  display: block;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  transition: ease all 0.3s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 998;
+}
+
+.modal__show {
+  position: fixed;
+
+  .modal,
+  .modal__overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal {
+    top: 50%;
+
+    &::after,
+    iframe {
+      visibility: visible;
+    }
+  }
+}

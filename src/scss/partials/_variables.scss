@@ -1,0 +1,32 @@
+$breakpoints: (
+  "laptop": 1100px,
+  "tablet-horiz": 1024px,
+  "tablet-vert": 768px,
+  "phone-horiz": 736px,
+  "phone-horiz-small": 667px,
+  "phone-horiz-tiny": 568px,
+  "phone-medium": 414px,
+  "phone-small": 375px,
+  "phone-tiny": 320px
+);
+
+//Fonts
+$body-font: "sofia-pro", "Helvetica", Arial, sans-serif;
+$header-font: "sofia-pro", "Helvetica", Arial, sans-serif;
+
+// Weight References
+$light: 300;
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+//Colors
+$background: #fff;
+$text: #1a1a1a;
+$brand: #f45e2c;
+
+//Base font size, used for EM calculations
+$base-font: 18px;
+$max_width: 1340px;
+$footerHeight: 94px;
+$footerHeight2: 134px;

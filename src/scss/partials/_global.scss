@@ -1,0 +1,13 @@
+.container {
+  margin: 0 auto;
+  max-width: $max_width;
+  width: 90%;
+}
+
+.section-padding {
+  padding-top: 60px;
+
+  @include mappy-bp(tablet-horiz) {
+    padding-top: 120px;
+  }
+}

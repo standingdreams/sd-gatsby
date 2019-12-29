@@ -1,0 +1,93 @@
+.col {
+  float: left;
+  margin-left: 3.2%;
+  margin-bottom: 30px;
+
+  @include mappy-bp(max phone-horiz) {
+    width: 100% !important;
+    margin-left: 0 !important;
+    clear: none !important;
+  }
+}
+
+.fullwidth .col {
+  float: none;
+  margin-left: 0;
+}
+
+.grid4,
+.grid3,
+.grid2 {
+  @include clearfix();
+}
+
+/* grid4 col */
+.grid4 {
+  .col {
+    width: 22.6%;
+
+    @media screen and (max-width: 740px) {
+      width: 31.2%;
+
+      &:nth-of-type(4n+1) {
+        margin-left: 3.2%;
+        clear: none;
+      }
+
+      &:nth-of-type(3n+1) {
+        margin-left: 0;
+        clear: left;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      width: 48.4%;
+
+      &:nth-of-type(3n+1) {
+        margin-left: 3.2%;
+        clear: none;
+      }
+
+      &:nth-of-type(2n+1) {
+        margin-left: 0;
+        clear: left;
+      }
+    }
+  }
+}
+
+/* grid3 col */
+.grid3 {
+  .col {
+    width: 31.2%;
+
+    @media screen and (max-width: 600px) {
+      width: 48.4%;
+
+      &:nth-of-type(3n+1) {
+        margin-left: 3.2%;
+        clear: none;
+      }
+
+      &:nth-of-type(2n+1) {
+        margin-left: 0;
+        clear: left;
+      }
+    }
+  }
+}
+
+/* grid2 col */
+.grid2 {
+  .col {
+    width: 48.4%;
+  }
+}
+
+/* clear col */
+.grid4 .col:nth-of-type(4n+1),
+.grid3 .col:nth-of-type(3n+1),
+.grid2 .col:nth-of-type(2n+1) {
+  margin-left: 0;
+  clear: left;
+}

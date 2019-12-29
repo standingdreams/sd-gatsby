@@ -5,14 +5,18 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
-import "./layout.css"
+import "./../scss/styles.scss"
 
-const Layout = ({ children }) => {
+import SEO from '../components/seo'
+import Header from "./header"
+
+const Layout = props => {
+  const [navOpen, setNavOpen] = useState(false)
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -23,30 +27,76 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const children = props.children
+  const title = props.title
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <SEO
+        title={title}
+        bodyClasses={`${navOpen ? 'show-nav' : ''}`}
+      />
+      <section className="site-wrapper">
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+          hamburgerState={() => {
+            setNavOpen(!navOpen)
+          }}
+        />
+        <main className="section-padding">{children}</main>
+      </section>
+      <footer className="mastfoot">
+        <article className="container">
+          <nav className="social-info">
+            <ul>
+              <li>
+                <a className="social-icon" href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/images/facebook.png" alt="pets healthy choice dog food" />
+                </a>
+              </li>
+              <li>
+                <a className="social-icon" href="http://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/images/instagram.png" alt=""/>
+                </a>
+              </li>
+              <li>
+                <a className="social-icon" href="http://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/images/linkedin.png" alt=""/>
+                </a>
+              </li>
+              <li>
+                <a className="social-icon" href="http://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/images/twitter.png" alt=""/>
+                </a>
+              </li>
+              <li>
+                <a className="social-icon" href="http://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/images/youtube.png" alt=""/>
+                </a>
+              </li>
+              <li>
+                <a className="social-icon" href="http://www.github.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/images/github.png" alt=""/>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="footer-info">
+            <span>{new Date().getFullYear()} Standing Dreams, Inc. All&nbsp;Rights&nbsp;Reserved.</span>
+          </div>
+        </article>
+      </footer>
     </>
   )
 }
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+}
+
+Header.propTypes ={
+  siteTitle: PropTypes.string,
+  hamburgerState: PropTypes.func
 }
 
 export default Layout

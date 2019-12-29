@@ -1,0 +1,136 @@
+@mixin animation-duration-name($dur, $name, $count: 1) {
+  animation-duration: $dur;
+  animation-iteration-count: $count;
+  animation-name: $name;
+}
+
+@mixin clearfix() {
+  display: block;
+
+  .ie7 & {
+    display: inline-block;
+  }
+
+  &::after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+
+  html[xmlns] & {
+    display: block;
+  }
+
+  * html & {
+    height: 1%;
+  }
+}
+
+@mixin css_columns($count, $gap, $rule: none) {
+  column-count: $count;
+  column-gap: $gap;
+  column-rule: $rule;
+}
+
+@mixin ir($image, $width, $height, $x: left, $y: top) {
+  background: url("/img/${image}") no-repeat $x $y;
+  display: block;
+  height: $height;
+  overflow: hidden;
+  position: relative;
+  text-indent: 100%;
+  white-space: nowrap;
+  width: $width;
+}
+
+@mixin keyframes( $animationName ) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin placeholder_style($def) {
+  ::-webkit-input-placeholder {
+    color: $def;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    color: $def;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: $def;
+  }
+
+  :-ms-input-placeholder {
+    color: $def;
+  }
+}
+
+@mixin sphere($def) {
+  border-radius: $def;
+  height: $def;
+  width: $def;
+}
+
+@mixin sphere-ie($def) {
+  border-radius: $def;
+  height: $def;
+  width: $def;
+
+  .no-borderradius & {
+    behavior: url(/_assets/js/PIE.htc);
+  }
+}
+
+@mixin to_em($target, $context: $base_font) {
+  font-size: ($target / $context) + 0em;
+}
+
+@mixin transition_all_args($property, $duration, $timing) {
+  transition-duration: $duration;
+  transition-property: $property;
+  transition-timing-function: $timing;
+}
+
+@mixin vertalign($def) {
+  height: $def;
+  line-height: $def;
+  vertical-align: middle;
+}
+
+@mixin vertaligncss3() {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin clearcssvert() {
+  top: auto;
+  transform: none;
+}
+
+@mixin fixedCenter($width, $height) {
+  height: $height;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: $width;
+}
