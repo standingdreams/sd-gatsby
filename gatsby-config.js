@@ -13,6 +13,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -47,6 +48,5 @@ module.exports = {
         path: `${__dirname}/src/writings`,
       }
     },
-    `gatsby-transformer-remark`,
   ],
 }
