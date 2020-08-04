@@ -51,7 +51,7 @@ const Layout = props => {
             <ul>
               <li>
                 <a className="social-icon" href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                  <img src="/images/facebook.png" alt="pets healthy choice dog food" />
+                  <img src="/images/facebook.png" alt="" />
                 </a>
               </li>
               <li>
