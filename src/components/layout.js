@@ -34,16 +34,17 @@ const Layout = props => {
     <>
       <SEO
         title={title}
-        bodyClasses={`${navOpen ? 'show-nav' : ''}`}
+        bodyClasses={`${navOpen ? `show-nav ${props.pageClass}` : props.pageClass}`}
       />
       <section className="site-wrapper">
         <Header
           siteTitle={data.site.siteMetadata.title}
+          landing={props.landing}
           hamburgerState={() => {
             setNavOpen(!navOpen)
           }}
         />
-        <main className="section-padding">{children}</main>
+        <main>{children}</main>
       </section>
       <footer className="mastfoot">
         <article className="container">

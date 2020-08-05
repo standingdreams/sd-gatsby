@@ -1,3 +1,14 @@
+.site-wrapper {
+  min-height: 100%;
+  margin-bottom: -$footerHeight;
+
+  &::after {
+    display: block;
+    content: "";
+    height: $footerHeight;
+  }
+}
+
 .container {
   margin: 0 auto;
   max-width: $max_width;

@@ -1,4 +1,5 @@
 .btn {
+  border-radius: 2px;
   display: block;
   font-size: 18px;
   line-height: 1;
@@ -29,4 +30,21 @@
   width: auto;
   padding: 18px;
   text-transform: uppercase;
+}
+
+.btn3 {
+  background-color: $brand;
+  border: 2px solid #fff;
+  color: #fff;
+  transition: ease all 0.3s;
+  padding: 12px 24px;
+  width: auto;
+  display: inline-block;
+
+  @include mappy-bp(tablet-vert) {
+    &:hover {
+      background-color: #fff;
+      color: $text;
+    }
+  }
 }

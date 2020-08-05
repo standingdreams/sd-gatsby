@@ -1,0 +1,89 @@
+.jamestown {
+  .section-padding {
+    padding-top: 65px;
+
+    @include mappy-bp(tablet-vert) {
+      padding-top: 80px;
+    }
+
+    @include mappy-bp(laptop) {
+      padding-top: 100px;
+    }
+  }
+
+  .masthead {
+    padding: 45px 0 0;
+
+    @include mappy-bp(tablet-vert) {
+      padding: 65px 0 0;
+    }
+  }
+
+  .site-logo {
+    background-image: url(https://res.cloudinary.com/standingdreams/image/upload/sdsite/svg/sd-jamestown.svg);
+    height: 30px;
+    width: 300px;
+    background-position: left center;
+
+    @include mappy-bp(tablet-vert) {
+      height: 58px;
+    }
+  }
+
+  &__aboutContent {
+    max-width: 620px;
+
+    .el-h1 {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__capabilities {
+    margin: 65px 0;
+
+    @include mappy-bp(tablet-vert) {
+      margin: 80px 0;
+    }
+  }
+
+  &__grid {
+    column-gap: 24px;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
+    row-gap: 24px;
+
+    @include mappy-bp(tablet-vert) {
+      row-gap: 40px;
+      column-gap: 40px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__proposal {
+    margin-top: 25px;
+    max-width: 620px;
+    margin-bottom: 60px;
+
+    strong {
+      color: $text;
+    }
+
+    @include mappy-bp(tablet-vert) {
+      margin-top: 60px;
+    }
+
+    .el-h1 {
+      margin-bottom: 24px;
+
+      @include mappy-bp(tablet-vert) {
+        margin-bottom: 30px;
+      }
+    }
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}

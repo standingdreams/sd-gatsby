@@ -36,23 +36,6 @@ body {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $header-font;
-  margin: 0;
-}
-
-h2 {
-  @include to_em(18px);
-  color: $text;
-  font-weight: $medium;
-  margin: 0;
-}
-
 p {
   padding: 0 0 1em;
 }
@@ -67,14 +50,13 @@ button {
   outline: none;
 }
 
-.site-wrapper {
-  min-height: 100%;
-  margin-bottom: -$footerHeight;
+button,
+a {
+  transition: all 0.15s ease-in-out;
 
-  &::after {
-    display: block;
-    content: "";
-    height: $footerHeight;
+  &:focus {
+    box-shadow: 0 0 0 3px $color--outline;
+    outline: none;
   }
 }
 

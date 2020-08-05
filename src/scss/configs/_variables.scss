@@ -7,7 +7,7 @@ $breakpoints: (
   "phone-horiz-tiny": 568px,
   "phone-medium": 414px,
   "phone-small": 375px,
-  "phone-tiny": 320px
+  "phone-tiny": 320px,
 );
 
 //Fonts
@@ -24,6 +24,7 @@ $bold: 700;
 $background: #fff;
 $text: #1a1a1a;
 $brand: #f45e2c;
+$color--outline: hsl(195, 91%, 57%);
 
 //Base font size, used for EM calculations
 $base-font: 18px;

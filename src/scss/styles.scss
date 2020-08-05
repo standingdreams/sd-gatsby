@@ -1,18 +1,10 @@
 @import "~normalize.css/normalize.css";
 @import "~mappy-breakpoints/_mappy-breakpoints.scss";
 
-//Import Mixins
-@import "partials/mixins";
-
-//Import Variables
-@import "partials/variables";
-
-//Base Styles
-@import "partials/base";
-@import "partials/global";
-@import "partials/grid";
-@import "partials/buttons";
-@import "partials/modal";
+@import "configs/configs";
+@import "elements/elements";
+@import "partials/partials";
 
 @import "layouts/layouts";
 @import "components/components";
+@import "pages/pages";
