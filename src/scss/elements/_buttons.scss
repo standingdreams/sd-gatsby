@@ -48,3 +48,24 @@
     }
   }
 }
+
+.el-btn {
+  display: inline-block;
+
+  &--solid {
+    padding: 20px 48px;
+    font-size: 1.25em;
+  }
+
+  &--solid-white {
+    @extend .el-btn--solid;
+    text-transform: uppercase;
+    background-color: #fff;
+    border: 2px solid #fff;
+
+    &:hover {
+      background-color: #000;
+      color: white;
+    }
+  }
+}
