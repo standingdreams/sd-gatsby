@@ -44,7 +44,9 @@ const Layout = props => {
             setNavOpen(!navOpen)
           }}
         />
-        <main>{children}</main>
+        <main className="main-wrapper">
+          {children}
+        </main>
       </section>
       <footer className="mastfoot">
         <article className="container">

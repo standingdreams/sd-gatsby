@@ -1,16 +1,9 @@
 .listings-wrapper {
   overflow: hidden;
   padding-bottom: 60px;
-  margin-top: 60px;
-
-  @include mappy-bp(tablet-vert) {
-    margin-top: 120px;
-  }
 
   .container {
     @include clearfix();
-
-    transform: translateX(8%);
     transition: ease all 0.3s;
   }
 }
@@ -229,10 +222,6 @@
 }
 
 .listings-shown {
-  .container {
-    transform: translateX(0);
-  }
-
   .listings-item {
     display: none;
 

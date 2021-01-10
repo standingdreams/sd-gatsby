@@ -24,7 +24,7 @@ const IndexPage = () => (
               <p>Implementing visual elements that users see and interact within a web application</p>
             </div>
             <div className="profile__grid-item">
-              <h3 className="el-h4">JavaScript and PHP backend development</h3>
+              <h3 className="el-h4">JavaScript &amp; PHP development</h3>
               <p>Executing development that connects with databases using NodeJS (NextJS) and PHP (Laravel)</p>
             </div>
             <div className="profile__grid-item">
