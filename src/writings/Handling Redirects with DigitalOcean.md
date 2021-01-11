@@ -23,7 +23,7 @@ Towards the bottom of apache2.conf you want to add the following:
 
 Save this out, turn to the command line if you are not already there and [SSH into your Droplet](https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh). You’re going to need `mod_rewrite` so that WordPress can use permalinks and various other reasons. To enable `mod_rewrite` insert the following after you’ve logged into your Droplet via SSH:
 
-```
+```shell
 sudo a2enmod rewrite
 ```
 
@@ -35,7 +35,7 @@ AH00558: apache2: Could not reliably determine the server’s fully qualified do
 
 If you want to suppress this message, we will need to open the main configuration file:
 
-```
+```shell
 sudo nano /etc/apache2/apache2.conf
 ```
 
@@ -49,7 +49,7 @@ Save and close the file when you are finished. You can re-run `sudo apache2ctl c
 
 Last but not least, restart Apache.
 
-```
+```shell
 sudo systemctl restart apache2
 ```
 
@@ -65,7 +65,7 @@ RewriteRule ^/(.*)         https://www.example.com/$1 [L,R]
 
 Replace `example.com` with your own domain. If you are looking to use a `non-www` URL for your site, remove the `www` from the block above. Save the file and restart Apache.
 
-```
+```shell
 sudo systemctl restart apache2
 ```
 

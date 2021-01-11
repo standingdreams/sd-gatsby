@@ -28,6 +28,7 @@
 
       code {
         background-color: darken($brand, 15%);
+        font-size: 0.9em;
         padding: 0 5px;
       }
     }
@@ -72,10 +73,11 @@
   pre {
     background-color: darken($brand, 15%);
     border-bottom: 2px solid $text;
+    font-size: 0.9em;
     margin: 1em 0;
     max-width: 620px;
+    overflow-x: auto;
     padding: 20px;
     white-space: pre-wrap;
-    overflow-x: auto;
   }
 }
