@@ -1,6 +1,7 @@
 import React from "react"
 
 import Layout from "../components/layout"
+import { Link } from 'gatsby';
 
 const IndexPage = () => (
   <Layout title="Home">
@@ -11,7 +12,7 @@ const IndexPage = () => (
             <h1 className="el-h2">About</h1>
             <h2 className="el-h1">Douglas Rogers</h2>
             <p>I am a frontend developer with over 11 years of industry experience building websites, HTML emails and web applications, providing strategy while building and launching high quality, engaging products. I have professional experience working with JavaScript and PHP. Other frameworks and technologies I've worked include NodeJS, React, VueJS, Gatsby, NextJS, Salesforce Storefront Reference Architecture (SFRA) and various headless CMSs.</p>
-            <a href="/" className="btn btn3">View Portfolio</a>
+            <Link className="btn btn3" to="/portfolio">View Portfolio</Link>
           </div>
         </div>
       </div>
@@ -61,11 +62,11 @@ const IndexPage = () => (
             <div className="profile__grid-item">
               <h3 className="el-h4">Current Interests</h3>
               <ul className="profile-item__list">
-                <li>Data Structures</li>
-                <li>Algorithms</li>
+                <li>Data Structures and Algorithms</li>
                 <li>Filmmaking</li>
+                <li>Blockchain Technology</li>
                 <li>Writing</li>
-                <li>Public Speaking</li>
+                <li>Investing</li>
               </ul>
             </div>
             <div className="profile__grid-item">
