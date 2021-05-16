@@ -100,8 +100,12 @@
     overflow: hidden;
 
     .container {
-      padding-left: 50px;
+      padding-left: 20px;
       position: relative;
+
+      @include mappy-bp(tablet-vert) {
+        padding-left: 50px;
+      }
 
       &::after {
         content: "";
@@ -120,12 +124,6 @@
           height: 170px;
         }
       }
-
-      @include mappy-bp(tablet-vert) {
-        align-items: center;
-        display: flex;
-        justify-content: flex-start;
-      }
     }
 
     .el-h5 {
@@ -142,6 +140,80 @@
       margin-left: 20px;
       text-decoration: underline;
       font-size: 16px;
+    }
+  }
+
+  &__social {
+    margin-top: 10px;
+
+    ul {
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    li {
+      margin-left: 12px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    a {
+      background-color: #f3f3f3;
+      color: $text;
+      display: block;
+      font-size: 1.2rem;
+      padding: 6px 10px;
+      line-height: 1.6em;
+      border-radius: 8px;
+
+      @include mappy-bp(tablet-vert) {
+        font-size: 1.6rem;
+        padding: 6px 14px;
+      }
+
+      &:hover {
+        background-color: $brand;
+        color: #f3f3f3;
+      }
+    }
+  }
+
+  &__form {
+    display: grid;
+    column-gap: 50px;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+    margin-bottom: 100px;
+
+    input,
+    textarea {
+      border: 0;
+      appearance: none;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      width: 100%;
+      display: block;
+    }
+
+    label {
+      display: block;
+    }
+
+    input {
+      height: 64px;
+    }
+
+    &Textarea {
+      grid-column: 1 / span 2;
+
+       textarea {
+        height: 235px;
+       }
     }
   }
 }
