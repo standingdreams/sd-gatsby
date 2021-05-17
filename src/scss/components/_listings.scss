@@ -78,7 +78,7 @@
   transition: ease all 0.3s;
   width: 100%;
 
-  @for $i from 1 through 10 {
+  @for $i from 1 through 100 {
     $eleMobile: ($i * 32)-32;
     $topPosition: $eleMobile + px;
 
@@ -88,7 +88,7 @@
   }
 
   @include mappy-bp(tablet-vert) {
-    @for $i from 1 through 10 {
+    @for $i from 1 through 100 {
       $ele: ($i * 38)-38;
       $topPosition: $ele + px;
 
@@ -139,12 +139,14 @@
   &__name {
     @include to_em(24px);
 
+    appearance: none;
     color: #fff;
     cursor: pointer;
     display: block;
     font-weight: $regular;
     line-height: 32px;
     opacity: 1;
+    text-align: left;
     transition: ease all 0.3s;
 
     &:hover {
