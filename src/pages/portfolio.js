@@ -1,4 +1,4 @@
-import React, { useReducer } from "react"
+import React, { useReducer, useEffect } from "react"
 
 import Layout from "../components/layout"
 
@@ -9,6 +9,13 @@ function reducer(state, action) {
         ...state,
         showPortfolioItem: action.payload === state.activePortfolio ? false : true,
         activePortfolio: action.payload === state.activePortfolio ? '' : action.payload,
+      }
+
+    case "closePortfolio":
+      return {
+        ...state,
+        showPortfolioItem: false,
+        activePortfolio: '',
       }
 
     default:
@@ -24,6 +31,20 @@ const Portfolio = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  const onDown = event => {
+      if (event.keyCode === 27) {
+        dispatch({ type: "closePortfolio"})
+      }
+  }
+
+  useEffect(() => {
+    window.addEventListener("keydown", onDown)
+
+    return () => {
+        window.removeEventListener("keydown", onDown)
+    }
+  }, [])
+
   return (
     <Layout title="Portfolio">
       <section className={`listings-wrapper${state.showPortfolioItem === true ? ' listings-shown' : ''}`}>
@@ -36,6 +57,9 @@ const Portfolio = () => {
                   onClick={() => {
                     dispatch({ type: "portfolioClick", payload: "hooters"})
                   }}
+                  onKeyDown={() => {
+                    dispatch({ type: "closePortfolio"})
+                  }}
                 >
                   01
                 </button>
@@ -46,6 +70,9 @@ const Portfolio = () => {
                   onClick={() => {
                     dispatch({ type: "portfolioClick", payload: "simavita"})
                   }}
+                  onKeyDown={() => {
+                    dispatch({ type: "closePortfolio"})
+                  }}
                 >
                   02
                 </button>
@@ -55,6 +82,9 @@ const Portfolio = () => {
                   className={`${state.activePortfolio === 'drop-deck-depot' ? 'current__item' : ''}`}
                   onClick={() => {
                     dispatch({ type: "portfolioClick", payload: "drop-deck-depot"})
+                  }}
+                  onKeyDown={() => {
+                    dispatch({ type: "closePortfolio"})
                   }}
                 >
                   03
@@ -136,13 +166,15 @@ const Portfolio = () => {
             <article id="hooters" key="hooters" className={`listings-item${state.activePortfolio === 'hooters' ? ' show-listings-item' : ''}`}>
               <div className="listings-item__content">
                 <header className="listings-header">
-                  <h2
+                  <button
                     className="listings-item__name"
-                    role="button"
                     onClick={() => {
                       dispatch({ type: "portfolioClick", payload: "hooters"})
                     }}
-                  >Hooters</h2>
+                    onKeyDown={() => {
+                      dispatch({ type: "closePortfolio"})
+                    }}
+                  >Hooters</button>
                   <h3 className="listings-item__role">Front-end Developer</h3>
                 </header>
                 <div className="listings-item__copy">
@@ -150,21 +182,23 @@ const Portfolio = () => {
                 </div>
               </div>
               <div className="listings-item__thumbnail">
-                <img src="/images/hooters-1.jpg" alt="Hooters" />>
+                <img src="/images/hooters-1.jpg" alt="Hooters" />
               </div>
             </article>
             <article id="simavita" key="simavita" className={`listings-item${state.activePortfolio === 'simavita' ? ' show-listings-item' : ''}`}>
               <div className="listings-item__content">
                 <header className="listings-header">
-                  <h2
+                  <button
                     className="listings-item__name"
-                    role="button"
                     onClick={() => {
                       dispatch({ type: "portfolioClick", payload: "simavita"})
                     }}
+                    onKeyDown={() => {
+                      dispatch({ type: "closePortfolio"})
+                    }}
                   >
                     Simavita
-                  </h2>
+                  </button>
                   <h3 className="listings-item__role">Lead Developer</h3>
                 </header>
                 <div className="listings-item__copy">
@@ -178,15 +212,17 @@ const Portfolio = () => {
             <article id="drop-deck-depot" key="drop-deck-depot" className={`listings-item${state.activePortfolio === 'drop-deck-depot' ? ' show-listings-item' : ''}`}>
               <div className="listings-item__content">
                 <header className="listings-header">
-                  <h2
+                  <button
                     className="listings-item__name"
-                    role="button"
                     onClick={() => {
                       dispatch({ type: "portfolioClick", payload: "drop-deck-depot"})
                     }}
+                    onKeyDown={() => {
+                      dispatch({ type: "closePortfolio"})
+                    }}
                   >
                     Drop Deck Depot
-                  </h2>
+                  </button>
                   <h3 className="listings-item__role">Lead Developer</h3>
                 </header>
                 <div className="listings-item__copy">
@@ -200,15 +236,17 @@ const Portfolio = () => {
             <article id="good2grow" key="good2grow" className={`listings-item${state.activePortfolio === 'good2grow' ? ' show-listings-item' : ''}`}>
               <div className="listings-item__content">
                 <header className="listings-header">
-                  <h2
+                  <button
                     className="listings-item__name"
-                    role="button"
                     onClick={() => {
                       dispatch({ type: "portfolioClick", payload: "good2grow"})
                     }}
+                    onKeyDown={() => {
+                      dispatch({ type: "closePortfolio"})
+                    }}
                   >
                     good2grow
-                  </h2>
+                  </button>
                   <h3 className="listings-item__role">Lead Developer</h3>
                 </header>
                 <div className="listings-item__copy">
@@ -222,15 +260,17 @@ const Portfolio = () => {
             <article id="utility" key="utility" className={`listings-item${state.activePortfolio === 'utility' ? ' show-listings-item' : ''}`}>
               <div className="listings-item__content">
                 <header className="listings-header">
-                  <h2
+                  <button
                     className="listings-item__name"
-                    role="button"
                     onClick={() => {
                       dispatch({ type: "portfolioClick", payload: "utility"})
                     }}
+                    onKeyDown={() => {
+                      dispatch({ type: "closePortfolio"})
+                    }}
                   >
                     Utility
-                  </h2>
+                  </button>
                   <h3 className="listings-item__role">Lead Developer</h3>
                 </header>
                 <div className="listings-item__copy">
@@ -244,15 +284,17 @@ const Portfolio = () => {
             <article id="marist" key="marist" className={`listings-item${state.activePortfolio === 'marist' ? ' show-listings-item' : ''}`}>
               <div className="listings-item__content">
                 <header className="listings-header">
-                  <h2
+                  <button
                     className="listings-item__name"
-                    role="button"
                     onClick={() => {
                       dispatch({ type: "portfolioClick", payload: "marist"})
                     }}
+                    onKeyDown={() => {
+                      dispatch({ type: "closePortfolio"})
+                    }}
                   >
                     Marist
-                  </h2>
+                  </button>
                   <h3 className="listings-item__role">User Experience, Lead Developer</h3>
                 </header>
                 <div className="listings-item__copy">
@@ -266,15 +308,17 @@ const Portfolio = () => {
             <article id="mitsubishi-electric-demo-truck" key="mitsubishi-electric-demo-truck" className={`listings-item${state.activePortfolio === 'mitsubishi-electric-demo-truck' ? ' show-listings-item' : ''}`}>
               <div className="listings-item__content">
                 <header className="listings-header">
-                  <h2
+                  <button
                     className="listings-item__name"
-                    role="button"
                     onClick={() => {
                       dispatch({ type: "portfolioClick", payload: "mitsubishi-electric-demo-truck"})
                     }}
+                    onKeyDown={() => {
+                      dispatch({ type: "closePortfolio"})
+                    }}
                   >
                     Mitsubishi Electric Demo Truck
-                  </h2>
+                  </button>
                   <h3 className="listings-item__role">Lead Developer</h3>
                 </header>
                 <div className="listings-item__copy">
@@ -288,15 +332,17 @@ const Portfolio = () => {
             <article id="sqwincher" key="sqwincher" className={`listings-item${state.activePortfolio === 'sqwincher' ? ' show-listings-item' : ''}`}>
               <div className="listings-item__content">
                 <header className="listings-header">
-                  <h2
+                  <button
                     className="listings-item__name"
-                    role="button"
                     onClick={() => {
                       dispatch({ type: "portfolioClick", payload: "sqwincher"})
                     }}
+                    onKeyDown={() => {
+                      dispatch({ type: "closePortfolio"})
+                    }}
                   >
                     Sqwincher
-                  </h2>
+                  </button>
                   <h3 className="listings-item__role">Lead Developer</h3>
                 </header>
                 <div className="listings-item__copy">
@@ -310,15 +356,17 @@ const Portfolio = () => {
             <article id="crisp-video" key="crisp-video" className={`listings-item${state.activePortfolio === 'crisp-video' ? ' show-listings-item' : ''}`}>
               <div className="listings-item__content">
                 <header className="listings-header">
-                  <h2
+                  <button
                     className="listings-item__name"
-                    role="button"
                     onClick={() => {
                       dispatch({ type: "portfolioClick", payload: "crisp-video"})
                     }}
+                    onKeyDown={() => {
+                      dispatch({ type: "closePortfolio"})
+                    }}
                   >
                     Crisp Video
-                  </h2>
+                  </button>
                   <h3 className="listings-item__role">Front-end Developer</h3>
                 </header>
                 <div className="listings-item__copy">
@@ -332,15 +380,17 @@ const Portfolio = () => {
             <article id="cnl-securities" key="cnl-securities" className={`listings-item${state.activePortfolio === 'cnl-securities' ? ' show-listings-item' : ''}`}>
               <div className="listings-item__content">
                 <header className="listings-header">
-                  <h2
+                  <button
                     className="listings-item__name"
-                    role="button"
                     onClick={() => {
                       dispatch({ type: "portfolioClick", payload: "cnl-securities"})
                     }}
+                    onKeyDown={() => {
+                      dispatch({ type: "closePortfolio"})
+                    }}
                   >
                     CNL Securities
-                  </h2>
+                  </button>
                   <h3 className="listings-item__role">Lead Developer</h3>
                 </header>
                 <div className="listings-item__copy">

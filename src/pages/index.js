@@ -1,6 +1,7 @@
 import React from "react"
 
 import Layout from "../components/layout"
+import { Link } from 'gatsby';
 
 const IndexPage = () => (
   <Layout title="Home">
@@ -11,7 +12,7 @@ const IndexPage = () => (
             <h1 className="el-h2">About</h1>
             <h2 className="el-h1">Douglas Rogers</h2>
             <p>I am a frontend developer with over 11 years of industry experience building websites, HTML emails and web applications, providing strategy while building and launching high quality, engaging products. I have professional experience working with JavaScript and PHP. Other frameworks and technologies I've worked include NodeJS, React, VueJS, Gatsby, NextJS, Salesforce Storefront Reference Architecture (SFRA) and various headless CMSs.</p>
-            <a href="/" className="btn btn3">View Portfolio</a>
+            <Link className="btn btn3" to="/portfolio">View Portfolio</Link>
           </div>
         </div>
       </div>
@@ -44,9 +45,15 @@ const IndexPage = () => (
       </div>
       <section className="profile__contact">
         <div className="container">
-          <h2 className="el-h5">Interested in doing business?</h2>
-          <button className="el-btn--solid-white">Contact Me</button>
-          <a className="link" href="/">Or just talk to me.</a>
+          <h2 className="el-h5">Interested in doing business? Reach at one of the following:</h2>
+          <nav className="profile__social">
+            <ul>
+              <li><a href="https://www.github.com/standingdreams" target="_blank" rel="noopener noreferrer">Github</a></li>
+              <li><a href="https://www.instagram.com/alwaysbeenwise" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://www.linkedin.com/in/standingdreams/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="https://www.twitter.com/codeOvrCoffee" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            </ul>
+          </nav>
         </div>
       </section>
       <div className="profile__block profile__block--last">
@@ -55,11 +62,11 @@ const IndexPage = () => (
             <div className="profile__grid-item">
               <h3 className="el-h4">Current Interests</h3>
               <ul className="profile-item__list">
-                <li>Data Structures</li>
-                <li>Algorithms</li>
+                <li>Data Structures and Algorithms</li>
                 <li>Filmmaking</li>
+                <li>Blockchain Technology</li>
                 <li>Writing</li>
-                <li>Public Speaking</li>
+                <li>Investing</li>
               </ul>
             </div>
             <div className="profile__grid-item">

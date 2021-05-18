@@ -29,13 +29,8 @@ const Header = props => {
                       <Link to="/portfolio">Portfolio</Link>
                     </li>
                     <li>
-                      <a href="/" target="_blank" rel="noopener noreferrer">
+                      <a href="https://medium.com/@standingdreams" target="_blank" rel="noopener noreferrer">
                         Writings
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/" target="_blank" rel="noopener noreferrer">
-                        Lifestyle
                       </a>
                     </li>
                   </ul>
