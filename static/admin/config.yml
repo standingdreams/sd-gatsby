@@ -1,0 +1,46 @@
+backend:
+  name: git-gateway
+
+# These lines should *not* be indented
+media_folder: static/images
+public_folder: /images
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/portfolio/index.md"
+        label: "Portfolio"
+        name: "portfolio"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "product-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Description, name: description, widget: string }
+          - {
+              label: Main,
+              name: main,
+              widget: object,
+              fields:
+                [
+                  { label: Company, name: company, widget: string },
+                  { label: Role, name: role, widget: string },
+                  { label: Description, name: description, widget: text },
+                  { label: URL, name: url, widget: string },
+                  {
+                    label: Thumbnail,
+                    name: thumbnail,
+                    widget: object,
+                    fields:
+                      [
+                        { label: Image, name: image, widget: image },
+                        { label: Alt, name: alt, widget: string },
+                      ],
+                  },
+                ],
+            }
