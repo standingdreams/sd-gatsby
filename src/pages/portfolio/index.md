@@ -46,7 +46,7 @@ portfolioItems:
     thumbnail:
       image: https://res.cloudinary.com/standingdreams/image/upload/sdsite/perch/resources/site_thumbs/mitsubishi-demo-truck.jpg
       alt: screenshot of Mitsubishi Electric Demo Truck site
-    url: "#"
+    url: ""
   - description: good2grow is a client at Morrison Agency. Morrison was commissioned
       to rebrand the company, Inzone Brands, that had an awesome product, Tummy
       Ticklers. Not only did we rename the company good2grow, we also gave the
@@ -70,7 +70,7 @@ portfolioItems:
       social media of their more celebrity users of the products.
     company: Sqwincher
     role: Lead Developer
-    url: http://sqwincher.com/
+    url: ""
     thumbnail:
       image: https://res.cloudinary.com/standingdreams/image/upload/sdsite/perch/resources/site_thumbs/sqwincher.jpg
       alt: screenshot of Sqwincher homepage
@@ -88,7 +88,7 @@ portfolioItems:
     thumbnail:
       image: https://res.cloudinary.com/standingdreams/image/upload/sdsite/perch/resources/site_thumbs/simavita-tech-pg-1.jpg
       alt: screenshot of Simavita's homepage
-    url: "#"
+    url: ""
   - description: Drop Deck Depot was a freelance project that was lead developer on.
       Drop Deck is the nation's leading source for hydraulic ground load
       trailers. The site was built using PHP, jQuery and CSS (SCSS compiled to
