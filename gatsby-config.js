@@ -58,5 +58,17 @@ module.exports = {
         path: `${__dirname}/src/writings`,
       }
     },
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: `${process.env.REPO_NAME}`,
+        accessToken: `${process.env.API_KEY}`,
+        linkResolver: ({ node, key, value }) => docs => `/${docs.uid}`,
+        schemas: {
+          home: require('./src/schemas/home.json'),
+          portfolioItems: require('./src/schemas/portfolioItems.json'),
+        },
+      },
+    },
   ],
 }

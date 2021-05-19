@@ -1,0 +1,45 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Item ID"
+      }
+    },
+    "company" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "Company"
+      }
+    },
+    "role" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Role"
+      }
+    },
+    "project_description" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading3, strong, em, hyperlink, embed, list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "Project Description"
+      }
+    },
+    "url" : {
+      "type" : "Link",
+      "config" : {
+        "label" : "URL"
+      }
+    },
+    "thumbnail" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Thumbnail"
+      }
+    }
+  }
+}
