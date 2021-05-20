@@ -3,6 +3,9 @@ require("dotenv").config({
 })
 
 module.exports = {
+  flags: {
+    DEV_SSR: false
+  },
   siteMetadata: {
     title: `Standing Dreams`,
     description: `Frontend engineer with backend abilities and 11 years of professional experience.`,
@@ -66,7 +69,7 @@ module.exports = {
         linkResolver: ({ node, key, value }) => docs => `/${docs.uid}`,
         schemas: {
           home: require('./src/schemas/home.json'),
-          portfolioItems: require('./src/schemas/portfolioItems.json'),
+          portfolio_items: require('./src/schemas/portfolio_items.json'),
         },
       },
     },
