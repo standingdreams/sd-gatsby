@@ -1,0 +1,24 @@
+{
+  "Main": {
+    "text_above_title": {
+      "type": "Text",
+      "config": {
+        "label": "Text above title"
+      }
+    },
+    "page_title": {
+      "type": "Text",
+      "config": {
+        "label": "Page Title"
+      }
+    },
+    "content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, embed, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Content"
+      }
+    }
+  }
+}

@@ -70,6 +70,7 @@ module.exports = {
         schemas: {
           home: require('./src/schemas/home.json'),
           portfolio_items: require('./src/schemas/portfolio_items.json'),
+          colophon: require('./src/schemas/colophon.json'),
         },
       },
     },
