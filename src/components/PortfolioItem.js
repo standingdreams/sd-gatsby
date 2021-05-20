@@ -17,7 +17,7 @@ export default function PortfolioItem({item, currentItem, clickHandler, escaped}
             onClick={clickHandler}
             onKeyDown={handled}
           >{company.text}</button>
-          <h3 className="listings-item__role">Front-end Developer</h3>
+          <h3 className="listings-item__role">{role}</h3>
         </header>
         <div className="listings-item__copy">
           <div dangerouslySetInnerHTML={{__html: project_description.html}}></div>
