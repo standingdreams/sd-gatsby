@@ -3,6 +3,7 @@ import { Link, graphql,useStaticQuery } from 'gatsby';
 
 import Layout from "../components/layout"
 import ProfileInterests from '../components/ProfileInterests';
+import ContactBlock from '../components/contactBlock';
 
 export default function IndexPage() {
   const {allPrismicHome} = useStaticQuery(graphql`
@@ -39,7 +40,7 @@ export default function IndexPage() {
       }
     }
   `)
-  const {text_above_name, intro_paragraph, capabilities, current_interests_heading, current_interests, other_interests_heading,
+  const {text_above_name, intro_paragraph, capabilities, current_interests,
     other_interests} = allPrismicHome.nodes[0].data
   return (
     <Layout title="Home">
@@ -67,19 +68,7 @@ export default function IndexPage() {
             </div>
           </div>
         </div>
-        <section className="profile__contact">
-          <div className="container">
-            <h2 className="el-h5">Interested in doing business? Reach at one of the following:</h2>
-            <nav className="profile__social">
-              <ul>
-                <li><a href="https://www.github.com/standingdreams" target="_blank" rel="noopener noreferrer">Github</a></li>
-                <li><a href="https://www.instagram.com/alwaysbeenwise" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="https://www.linkedin.com/in/standingdreams/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="https://www.twitter.com/codeOvrCoffee" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-              </ul>
-            </nav>
-          </div>
-        </section>
+        <ContactBlock />
         <div className="profile__block profile__block--last">
           <div className="container">
             <div className="profile__grid">

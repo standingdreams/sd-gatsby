@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import "./../scss/styles.scss"
 
@@ -73,7 +73,7 @@ const Layout = props => {
             </ul>
           </nav>
           <div className="footer-info">
-            <span>{new Date().getFullYear()} Standing Dreams, Inc. All&nbsp;Rights&nbsp;Reserved.</span>
+            <span>{new Date().getFullYear()} Standing Dreams, Inc. All&nbsp;Rights&nbsp;Reserved. | <Link to="/colophon">Colophon</Link></span>
           </div>
         </article>
       </footer>
