@@ -38,6 +38,14 @@ body {
 
 p {
   padding: 0 0 1em;
+
+  a {
+    font-weight: $bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 button {

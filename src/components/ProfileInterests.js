@@ -6,7 +6,7 @@ export default function ProfileInterests({heading, items}) {
       <h3 className="el-h4">{heading}</h3>
       <ul className="profile-item__list">
         {items.map((item, index) => (
-          <li>{item.interest}</li>
+          <li key={`interest-${index}`}>{item.interest}</li>
         ))}
       </ul>
     </div>

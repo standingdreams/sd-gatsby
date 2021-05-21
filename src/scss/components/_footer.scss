@@ -73,4 +73,12 @@
     text-align: center;
     display: block;
   }
+
+  a {
+    font-weight: $bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
