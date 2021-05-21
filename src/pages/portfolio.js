@@ -2,6 +2,7 @@ import React, { useReducer } from "react"
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from "../components/layout"
 import PortfolioItem from "../components/PortfolioItem";
+import { slugify } from '../components/helpers';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -31,32 +32,37 @@ const Portfolio = () => {
   }
 
   const [state, dispatch] = useReducer(reducer, initialState)
-  const {allPrismicPortfolioItems} = useStaticQuery(graphql`
+  const {allPrismicPortfolio} = useStaticQuery(graphql`
     query PortfolioQuery {
-      allPrismicPortfolioItems(sort: {fields: uid}) {
+      allPrismicPortfolio {
         nodes {
-          uid
           data {
-            company {
+            page_heading {
               text
             }
-            role
-            project_description {
+            page_content {
               html
             }
-            url {
-              url
-            }
-            thumbnail {
-              url
-              alt
+            sites {
+              company_name {
+                text
+              }
+              role
+              project_descripton {
+                html
+              }
+              site_url
+              site_thumbnail {
+                alt
+                url
+              }
             }
           }
         }
       }
     }
   `)
-  const portfolioList = allPrismicPortfolioItems.nodes;
+  const portfolioList = allPrismicPortfolio.nodes[0].data.sites;
   function handleOnKeyDown(event) {
     if (event.keyCode === 27) {
       dispatch({ type: "closePortfolio"})
@@ -70,17 +76,18 @@ const Portfolio = () => {
           <article className="listings-nav">
             <ul>
               {portfolioList.map((item, index) => {
+                const companyName = slugify(item.company_name.text)
                 const plusOne = index + 1;
                 const formattedIndex = plusOne.toLocaleString('en-US', {
                   minimumIntegerDigits: 2,
                   useGrouping: false
                 })
                 return (
-                  <li key={`${item.uid}-number`}>
+                  <li key={companyName}>
                     <button
-                      className={`${state.activePortfolio === item.uid ? 'current__item' : ''}`}
+                      className={`${state.activePortfolio === companyName ? 'current__item' : ''}`}
                       onClick={() => {
-                        dispatch({ type: "portfolioClick", payload: item.uid})
+                        dispatch({ type: "portfolioClick", payload: companyName})
                       }}
                       onKeyDown={handleOnKeyDown}
                     >
@@ -92,7 +99,13 @@ const Portfolio = () => {
             </ul>
           </article>
           <div className="listings-item__wrapper">
-            {portfolioList.map((item) => <PortfolioItem key={item.uid} item={item} currentItem={state.activePortfolio} clickHandler={() => {dispatch({ type: "portfolioClick", payload: item.uid})}} escaped={() => dispatch({ type: "closePortfolio"})} />)}
+            {portfolioList.map(item => {
+              const companyName = slugify(item.company_name.text)
+
+              return (
+                <PortfolioItem key={companyName} item={item} currentItem={state.activePortfolio} itemSlug={companyName} clickHandler={() => {dispatch({ type: "portfolioClick", payload: companyName})}} escaped={() => dispatch({ type: "closePortfolio"})} />
+              )
+            })}
           </div>
         </div>
       </section>

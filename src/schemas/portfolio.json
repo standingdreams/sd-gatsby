@@ -1,0 +1,68 @@
+{
+  "Main": {
+    "page_heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Page Heading"
+      }
+    },
+    "page_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, embed, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Page Content"
+      }
+    },
+    "sites": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "company_name": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Company Name"
+            }
+          },
+          "role": {
+            "type": "Text",
+            "config": {
+              "label": "Role"
+            }
+          },
+          "project_descripton": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item",
+              "allowTargetBlank": true,
+              "label": "Project Descripton"
+            }
+          },
+          "site_url": {
+            "type": "Text",
+            "config": {
+              "label": "Site URL"
+            }
+          },
+          "site_thumbnail": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Site Thumbnail"
+            }
+          },
+          "uid": {
+            "type": "UID",
+            "config": {
+              "label": "ID"
+            }
+          }
+        },
+        "label": "Sites"
+      }
+    }
+  }
+}

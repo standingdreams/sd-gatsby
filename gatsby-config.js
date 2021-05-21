@@ -69,7 +69,7 @@ module.exports = {
         linkResolver: ({ node, key, value }) => docs => `/${docs.uid}`,
         schemas: {
           home: require('./src/schemas/home.json'),
-          portfolio_items: require('./src/schemas/portfolio_items.json'),
+          portfolio: require('./src/schemas/portfolio.json'),
           colophon: require('./src/schemas/colophon.json'),
         },
       },
