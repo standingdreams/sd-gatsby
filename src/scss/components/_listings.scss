@@ -31,16 +31,16 @@
   button {
     color: $text;
     font-weight: $bold;
-    opacity: 0.15;
+    color: rgba($text, .15);
     transition: ease all 0.3s;
     outline: none;
 
     &:hover {
-      opacity: 0.25;
+      color: rgba($text, .25);
     }
 
     &.current__item {
-      opacity: 0.45;
+      color: rgba($text, .45);
     }
   }
 
@@ -145,12 +145,15 @@
     display: block;
     font-weight: $regular;
     line-height: 32px;
-    opacity: 1;
     text-align: left;
     transition: ease all 0.3s;
 
     &:hover {
-      opacity: 0.8;
+      color: rgba(#fff, 0.8);
+    }
+
+    &:focus {
+      background-color: $color--outline;
     }
 
     @include mappy-bp(tablet-vert) {

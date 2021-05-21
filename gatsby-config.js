@@ -8,7 +8,7 @@ module.exports = {
   },
   siteMetadata: {
     title: `Standing Dreams`,
-    description: `Frontend engineer with backend abilities and 11 years of professional experience.`,
+    description: `A sneaker loving, cereal devouring, frontend engineer with ${new Date().getFullYear() - 2007} years of professional experience.`,
     author: `@standingdreams`,
   },
   plugins: [
