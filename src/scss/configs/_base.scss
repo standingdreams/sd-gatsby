@@ -9,21 +9,16 @@ html {
 }
 
 body {
-  -webkit-font-smoothing: antialiased;
   background-color: $brand;
   color: #fff;
   font-family: $body-font;
   font-size: 15px;
+  -webkit-font-smoothing: antialiased;
   height: 100%;
   letter-spacing: -0.0125em;
   line-height: 1.5;
   position: relative;
   width: 100%;
-
-  a {
-    color: #fff;
-    text-decoration: none;
-  }
 
   @include mappy-bp(max phone-horiz) {
     &.show-nav {
@@ -33,6 +28,38 @@ body {
 
   @include mappy-bp(phone-horiz) {
     font-size: $base-font;
+  }
+
+  &.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: $body-font;
+  outline: none;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(128, 127, 128, 0);
+}
+
+button,
+a {
+  transition: all 0.15s ease-in-out;
+
+  &:focus {
+    box-shadow: 0 0 0 3px $color--outline;
+    outline: none;
   }
 }
 
@@ -45,26 +72,6 @@ p {
     &:hover {
       text-decoration: underline;
     }
-  }
-}
-
-button {
-  -webkit-tap-highlight-color: rgba(128, 127, 128, 0);
-  background: transparent;
-  border: 0;
-  font-family: $body-font;
-  padding: 0;
-  cursor: pointer;
-  outline: none;
-}
-
-button,
-a {
-  transition: all 0.15s ease-in-out;
-
-  &:focus {
-    box-shadow: 0 0 0 3px $color--outline;
-    outline: none;
   }
 }
 

@@ -1,25 +1,11 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
+import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import ContactBlock from "../components/contactBlock"
 
-export default function Colophon() {
-  const { allPrismicColophon } = useStaticQuery(graphql`
-    {
-      allPrismicColophon {
-        nodes {
-          data {
-            text_above_title
-            page_title
-            content {
-              html
-            }
-          }
-        }
-      }
-    }
-  `)
-  const { text_above_title, page_title, content } = allPrismicColophon.nodes[0].data
+export default function Colophon({ data }) {
+  const { text_above_title, page_title, content } = data.allPrismicColophon.nodes[0].data
   return (
     <Layout title="Colophon">
       <div className="profile-wrapper">
@@ -36,4 +22,24 @@ export default function Colophon() {
       </div>
     </Layout>
   )
+}
+
+export const pageQuery = graphql`
+  {
+    allPrismicColophon {
+      nodes {
+        data {
+          text_above_title
+          page_title
+          content {
+            html
+          }
+        }
+      }
+    }
+  }
+`
+
+Colophon.propTypes = {
+  data: PropTypes.object,
 }

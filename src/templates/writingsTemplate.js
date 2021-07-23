@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
-import { graphql, Link } from "gatsby"
+import PropTypes from "prop-types"
+import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Prism from "prismjs"
@@ -52,3 +53,6 @@ export const pageQuery = graphql`
     }
   }
 `
+Template.propTypes = {
+  data: PropTypes.object,
+}
