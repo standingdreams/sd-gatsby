@@ -1,44 +1,53 @@
 import React, { useEffect } from "react"
-import { graphql } from "gatsby"
-import Layout from '../components/layout'
+import { graphql, Link } from "gatsby"
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Prism from "prismjs"
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+import Layout from "../components/layout"
 
+// const shortcodes = { Link }
+const components = {
+  pre: props => <pre {...props} />,
+  code: props => <code {...props} />,
+}
+
+const options = { year: "numeric", month: "long", day: "numeric" }
+
+export default function Template({ data: { mdx } }) {
   useEffect(() => {
     // call the highlightAll() function to style our code blocks
     Prism.highlightAll()
   })
 
   return (
-    <Layout title={frontmatter.title}>
+    <Layout title={mdx.frontmatter.title}>
       <div className="container">
         <div className="blog">
           <header className="blog__header">
-            <p className="blog__date">{frontmatter.date}</p>
-            <h1 className="blog__heading">{frontmatter.title}</h1>
+            <p className="blog__date">{new Date(mdx.frontmatter.date).toLocaleDateString("en-US", options)}</p>
+            <h1 className="blog__heading">{mdx.frontmatter.title}</h1>
           </header>
-          <div
-            className="blog__content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <div className="blog__content">
+            <MDXProvider components={components}>
+              <MDXRenderer frontmatter={mdx.frontmatter}>{mdx.body}</MDXRenderer>
+            </MDXProvider>
+          </div>
         </div>
       </div>
     </Layout>
   )
 }
+
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+  query BlogPostQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      id
+      body
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
         title
+        date
+        path
       }
     }
   }
