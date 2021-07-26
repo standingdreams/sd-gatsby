@@ -19,20 +19,6 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
-// exports.onCreateNode = ({ node, actions }) => {
-//   const { createNodeField } = actions
-//   if (node.internal.type === "Mdx") {
-//     const publishDate = node.frontmatter.date
-//     const isScheduledPost = !publishDate || new Date(publishDate).getTime() > Date.now()
-//     console.log(isScheduledPost)
-//     createNodeField({
-//       name: "isScheduledPost",
-//       node,
-//       value: isScheduledPost,
-//     })
-//   }
-// }
-
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
