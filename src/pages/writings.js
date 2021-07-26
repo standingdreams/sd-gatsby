@@ -17,9 +17,9 @@ const Writings = ({
             {edges.map(post => {
               const { frontmatter, fields, id } = post.node
               return (
-                <a key={id} href={fields.slug} className="listings-item__name">
+                <Link key={id} to={fields.slug} className="listings-item__name">
                   {frontmatter.title}
-                </a>
+                </Link>
               )
             })}
           </div>
