@@ -1,0 +1,45 @@
+---
+path: "/heroku-vs-digitalocean/the-experiment-continues"
+date: "2019-04-04"
+title: "Heroku vs DigitalOcean: The Experiment Continues"
+---
+
+import { Link } from "gatsby"
+
+<div className="blog__toc">
+  <p>The Experiment's Table of Contents</p>
+  <ul>
+    <li><Link to="/writings/heroku-vs-digitalocean/an-experiment-in-the-making">Part 1: An Experiment in the Making</Link></li>
+    <li><Link to="/writings/heroku-vs-digitalocean/getting-started-with-digitalocean">Part 2: Getting Started with DigitalOcean</Link></li>
+    <li><Link to="/writings/heroku-vs-digitalocean/handling-redirects-with-digitalocean">Part 3: Handling Redirects with DigialOcean</Link></li>
+    <li><Link class="current" to="/writings/heroku-vs-digitalocean/the-experiment-continues">Part 4: The Experiment Continues</Link></li>
+    <li><Link to="/writings/heroku-vs-digitalocean/deploying-to-heroku">Part 5: Deploy to Heroku</Link></li>
+  </ul>
+</div>
+
+---
+
+Hello, my fellow developers, DevOps folks and curious tinkerers. It’s been quite some time since I started this project. One year, one month and three days ago to be exact. I know I’ve been absent from updates on this project but I have not forgotten about it.
+
+When we left off, I had just moved from MediaTemple to Digital Ocean, used their amazing documentation to get a droplet set up, MAMP stack installed, Perch installed, Let’s Encrypt scheduled to automatically renew and site up and running. If you have visited http://www.standingdreams.com since March 2018, you would have been visiting the site on the Digital Ocean hosting.
+
+The goal was to live with Digital Ocean for a month or so and then transition over to Heroku. After a month, I began the task of moving to Heroku. Aside from getting married, having a child and starting a new job in the middle of this project, there were a few other challenges I faced with Heroku that put the project on pause. A lot of platform hurdles…a little laziness, also. 😊
+
+The nature of Heroku is to spin up dynos (lightweight Linux containers) that are ephemeral. What this means is that once you spin up a new container, that container receives a brand-spanking-new environment of your code. This is perfect for static sites but with a site ran on WordPress or most content management systems, this is not good. CMSs provide a way for you to upload new assets (PDFs, images, etc) into the platform that is generally hosted in the same place as your CMS. SO when you go to spin up a new version of the site, those files you’ve upload do not go for the ride. They are destroyed along with the previous version of the site.
+
+To overcome this challenge you can host your assets in a cloud storage service like Amazon S3. For me, I wanted to host them with Cloudinary. Cloudinary not only manages assets but also optimizes the images by devices, serves the image via multiple CDNs, image manipulations, and more. They have a free tier that works very well for me but if you need more storage and features, their paid tiers are competitive.
+
+Cloudinary provides a way to automatically upload images, called auto-fetching, to the service by prepending a URL to all image URLs on your site. I found myself stuck wanting to create a plugin to replace Perch’s image plugin to upload images to the platform. In between all that procrastination, someone created a plugin (or a template filter).
+
+Now that the “hard part” is done, the plan is to stand Standing Dreams up on Heroku within the next two weeks. Below are a few of the steps to make that happen.
+
+- Find a cloud database solution
+- Install Perch’s Cloudinary Template filter onto the site
+- Connect Github and Heroku
+- Deploy site to Heroku
+
+Since Heroku allows for a site without the need of connecting to a domain, this gives me the opportunity to experiment on a temporary domain without changing the URL to Standing Dreams.
+
+If you guys have any suggestions for cloud database solutions, please let me know. Also, I’ve been flirting with the idea of turning this blog series into a video series. Even recording the Digital Ocean pieces to show the creation of the droplet and the installation of the Perch site. Let me know if you guys would be interested in seeing that in the comments below.
+
+*Disclaimer: Some of the links provided in this article are referral links where I get bonus time on the services if you click and sign up.*

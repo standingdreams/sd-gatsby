@@ -8,16 +8,14 @@ module.exports = {
   },
   siteMetadata: {
     title: `Standing Dreams`,
-    description: `A sneaker loving, cereal devouring, frontend engineer with ${
-      new Date().getFullYear() - 2007
-    } years of professional experience.`,
-    author: `@standingdreams`,
+    description: `UI Engineer with designer chops. Husband. Dad. Sneakerhead. Creator of Tweenshot. Working @ SalesLoft.`,
+    author: `Douglas Rogers: @codeOvrCoffee`,
+    siteUrl: `https://www.standingdreams.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     "gatsby-plugin-mdx",
     {
       resolve: `gatsby-transformer-remark`,
@@ -90,5 +88,58 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(sort: {order: DESC, fields: frontmatter___date}) {
+                  edges {
+                    node {
+                      frontmatter {
+                        title
+                        date
+                      }
+                      fields {
+                        slug
+                      }
+                      excerpt
+                      html
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Standing Dream: RSS Feed",
+          },
+        ],
+      },
+    }
   ],
 }

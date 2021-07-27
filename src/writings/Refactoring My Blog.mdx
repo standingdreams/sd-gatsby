@@ -1,0 +1,28 @@
+---
+path: "/refactoring-my-portfolio"
+date: "2021-07-27"
+title: "Refactoring My Portfolio"
+---
+
+I’ve always taken pride in this site. I’ve always designed and developed it myself. Standing Dreams was more than just my portfolio, it was a lifestyle blog of the things that I felt was cool. My “dreams while standing”. I designed it in Photoshop and built it using WordPress, SCSS and jQuery. Everything was custom and I took pride in that. I blogged almost every day. It really was a joy to me.
+
+Blogging became too much as I got deeper into my development career. I began interviewing for more roles and so I made the site my portfolio. I designed this look and feel and used my favorite CMS at the time to run the content. I really love this look and feel but as the years went on, the engine under the hood began to age. I found myself migrating away from PHP and into he arms of JavaScript. I wanted something fresh without a redesign. That’s when my love affair with Gatsby began.
+
+I started experimenting with Gatsby for some freelance projects and absolutely loved it. I refactored my mother-in-law’s pet store website into a Gatsby website. I used it to develop a series of marketing sites for a medical workspace. I planned out a Gatsby vs NextJS YouTube series. It was only a matter of time before Standing Dreams became my target. When I finally did start, I became obsessed with the right headless CMS to use. I experimented with Directus, Strapi, Butter CMS, Contentful, DatoCMS, Cosmic, TakeShape, Prismic and a lot more. I actually was making a video comparing all the CMS using my site for the case study. I stopped midway through because my wife got pregnant and my attention went into preparing for Jaden so ALL the videos ended up on a hard drive somewhere. Prismic ended up taking the cake for me and that’s what I’ve used as a headless CMS for sites.
+
+## Why Gatsby
+My primary reason for using Gatsby was to bring me closer to React. I wanted to learn it and felt that Gatsby was a great gateway drug into it. At the time, I was working at Carter’s and we weren’t touching React. Toss in the fact that it made super fast sites and you could use a headless CMS and I was ready to get busy. Originally the site was just going to be my portfolio and any of my writings or blog posts would live with Medium. However, after realizing how much traffic my post about DigitalOcean vs Heroku was getting, I quickly realized I needed to rethink that strategy (which was flawed from the beginning) and bring that content and traffic to my own site.
+
+After rebuilding the core functionality of the portfolio out, I added the blog. I flirted with putting those posts in the headless CMS but I also loved the idea of them being markdown files. I write all my posts in markdown with iA Writer so it would be easy to just move the file to my site’s directory and push with git.
+
+## Concerns
+The one concern I did have with Gatsby and making the blog with markdown files is site size. All of my posts are markdown files and will live in git. My hope is that I post often. My fear is what happens when I get to post 100. With very new post, the site has to rebuild itself to generate those pages. Remember, Gatsby is a static site generator. Even if I were to keep my posts in a headless CMS, the site has to build those pages every time I make a new post so that it generates the page. I get nervous thinking about how build time will be impacted by an increase in markdown files later on down the line.
+
+When choosing a system to go with, I had a little pause in Gatsby because of these concerns. I considered going with Next because pages are generated server side so a new site wouldn’t have to be built with every new post. I say “little pause” but I was actually done with the refactor almost 6-8 months ago. I pushed the portfolio section live 2 months ago  and left off the blog as I still thought it over.
+
+Ultimately I stuck with Gatsby. Gatsby has implemented incremental builds in v3. I just need to do the work to upgrade and test it out. If things go left and build time is impacted, it should be an easy lift to port the site over to Next since it’s all just React.
+
+## Moving Forward
+Now that the site is live, I still have a few more loose ends to clear up. The site still uses the old SCSS file from the original build. I want to get that outta here and move to styled components. I need to get Cloudinary back on the website to handle images also. I also want to integrate an open source scheduling tool that I found. I get a lot of requests for my time and but not enough to make sense out of paying for those tools. Lastly, at some point, I want to transition the site to Typescript. THIS will probably be a large project but I’m more excited about this than any of my other tasks.
+
+Now that I have a blog, I have to get back to blogging. My last blog was music and tech heavy. I was basically trying to be Gear Patrol but with music. It’s still going to be a hodgepodge of topics that I find interesting but I’m adding some engineering/development topics to the mix now. As I learn, I’ll post. All the little tips that I’ve gathered over my 13 year career, I’ll post...unless it’s a parlor trick of mine. Then you’ll have to pay for that. LMAO.

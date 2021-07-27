@@ -1,8 +1,8 @@
 .masthead {
+  background-color: $brand;
   padding: 20px 0;
   position: relative;
   z-index: 99;
-  background-color: $brand;
 
   .container {
     position: relative;
@@ -78,6 +78,7 @@
 
     li {
       @include to_em(18px);
+
       margin-left: 30px;
       padding: 22px 0;
       text-transform: none;
@@ -102,28 +103,23 @@
       }
     }
   }
-
-  @include mappy-bp(tablet-horiz) {
-    li {
-      margin-left: 50px;
-    }
-  }
 }
 
 .mobile-nav {
   background-color: $text;
   height: 100%;
   left: 0;
+  padding-top: 20px;
   position: fixed;
   right: 0;
   top: -200%;
   transition: ease all 0.5s;
   width: 100%;
   z-index: 90;
-  padding-top: 20px;
 
   li {
     @include to_em(24px);
+
     font-weight: $medium;
     text-transform: uppercase;
   }
@@ -145,19 +141,19 @@
 }
 
 .mobile-social {
-  position: relative;
-  padding-top: 20px;
   margin-top: 20px;
+  padding-top: 20px;
+  position: relative;
 
   &::before {
-    content: "";
-    height: 2px;
-    width: 20%;
     background-color: #fff;
+    content: "";
     display: block;
+    height: 2px;
+    left: 5%;
     position: absolute;
     top: 0;
-    left: 5%;
+    width: 20%;
   }
 
   a {
@@ -188,12 +184,12 @@
   }
 
   .bars {
-    transition: ease transform 0.3s;
     height: 16px;
     left: 50%;
     margin-left: -10px;
     margin-top: -8px;
     top: 50%;
+    transition: ease transform 0.3s;
     width: 20px;
     will-change: transform;
   }
@@ -202,8 +198,8 @@
     background: #fff;
     display: block;
     height: 2px;
-    width: 100%;
     transition: transform 0.4s, margin 0.4s, opacity 0.4s, background 0.3s;
+    width: 100%;
   }
 
   .bar2 {

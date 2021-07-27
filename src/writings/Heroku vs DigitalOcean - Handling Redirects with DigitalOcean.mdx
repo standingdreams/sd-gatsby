@@ -1,21 +1,31 @@
 ---
 path: "/heroku-vs-digitalocean/handling-redirects-with-digitalocean"
-date: "2019-12-17"
+date: "2018-03-01"
 title: "Heroku vs DigitalOcean: Handling Redirects with DigitalOcean"
 ---
 
-I asked for total control and I got total control. One of the first issues I came across was that my site was no longer reading my `.htaccess` file. I had all these lovely redirects for previous blogs, `non-www` traffic, etc. Welp…all gone. I was so used to [MediaTemple](http://bit.ly/2hnP7tF) handling that for me. Well, those days are gone now that I’m on [DigitalOcean](https://m.do.co/c/0d5110e21375), or at least until the end of my 30 days are over.
+import { Link } from "gatsby"
 
-<figure>
-<img src="/images/image-ph.jpg"
-     alt="Image" />
-</figure>
+<div className="blog__toc">
+  <p>The Experiment's Table of Contents</p>
+  <ul>
+    <li><Link to="/writings/heroku-vs-digitalocean/an-experiment-in-the-making">Part 1: An Experiment in the Making</Link></li>
+    <li><Link to="/writings/heroku-vs-digitalocean/getting-started-with-digitalocean">Part 2: Getting Started with DigitalOcean</Link></li>
+    <li><Link class="current" to="/writings/heroku-vs-digitalocean/handling-redirects-with-digitalocean">Part 3: Handling Redirects with DigialOcean</Link></li>
+    <li><Link to="/writings/heroku-vs-digitalocean/the-experiment-continues">Part 4: The Experiment Continues</Link></li>
+    <li><Link to="/writings/heroku-vs-digitalocean/deploying-to-heroku">Part 5: Deploy to Heroku</Link></li>
+  </ul>
+</div>
+
+---
+
+I asked for total control and I got total control. One of the first issues I came across was that my site was no longer reading my `.htaccess` file. I had all these lovely redirects for previous blogs, `non-www` traffic, etc. Welp…all gone. I was so used to [MediaTemple](http://bit.ly/2hnP7tF) handling that for me. Well, those days are gone now that I’m on [DigitalOcean](https://m.do.co/c/0d5110e21375), or at least until the end of my 30 days are over.
 
 I had to get my hands dirty if I wanted to get my redirects back in order. That meant turning to DigitalOcean’s documentation. Apache does not allow `.htaccess` files to override things out the box. Not sure why. I’m sure it’s a good reason but that reason is beyond me. Again…I’m not a DevOps guys. You can do this one of a few ways: via the command line or FTP into your Droplet and navigate to `/etc/apache2/apache2.conf`. I chose the latter. But also not that you STILL will need to access your Droplet via command line so that you can restart Apache and enable `mod_rewrite`.
 
 Towards the bottom of apache2.conf you want to add the following:
 
-```shell
+```
 <Directory /var/www/html/>
     AllowOverride All
 </Directory>
@@ -23,7 +33,7 @@ Towards the bottom of apache2.conf you want to add the following:
 
 Save this out, turn to the command line if you are not already there and [SSH into your Droplet](https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh). You’re going to need `mod_rewrite` so that WordPress can use permalinks and various other reasons. To enable `mod_rewrite` insert the following after you’ve logged into your Droplet via SSH:
 
-```shell
+```
 sudo a2enmod rewrite
 ```
 
@@ -35,7 +45,7 @@ AH00558: apache2: Could not reliably determine the server’s fully qualified do
 
 If you want to suppress this message, we will need to open the main configuration file:
 
-```shell
+```
 sudo nano /etc/apache2/apache2.conf
 ```
 
@@ -49,7 +59,7 @@ Save and close the file when you are finished. You can re-run `sudo apache2ctl c
 
 Last but not least, restart Apache.
 
-```shell
+```
 sudo systemctl restart apache2
 ```
 
@@ -65,8 +75,10 @@ RewriteRule ^/(.*)         https://www.example.com/$1 [L,R]
 
 Replace `example.com` with your own domain. If you are looking to use a `non-www` URL for your site, remove the `www` from the block above. Save the file and restart Apache.
 
-```shell
+```
 sudo systemctl restart apache2
 ```
 
 Again, not for the faint at heart. If you are having issues yourself, I suggest you refer to DigitalOcean’s amazing documentation for more help.
+
+*Disclaimer: Some of the links provided in this article are referral links where I get bonus time on the services if you click and sign up.*

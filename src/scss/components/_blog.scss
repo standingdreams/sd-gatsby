@@ -23,6 +23,14 @@
   }
 
   &__content {
+    h2 {
+      color: whitesmoke;
+      font-weight: $bold;
+      margin-top: 65px;
+
+      @include to_em(26px);
+    }
+
     p {
       max-width: 620px;
 
@@ -33,6 +41,10 @@
         padding: 0 5px;
         white-space: normal;
       }
+    }
+
+    ul {
+      margin: 0 0 1em;
     }
 
     figure {
@@ -69,6 +81,44 @@
           z-index: 1;
         }
       }
+    }
+
+    hr {
+      margin: 35px 0;
+      max-width: 620px;
+    }
+  }
+
+  &__toc {
+    background-color: $text;
+    border-radius: 8px;
+    display: block;
+    max-width: 620px;
+    padding: 20px;
+
+    p {
+      font-weight: $bold;
+    }
+
+    a {
+      color: whitesmoke;
+      font-weight: $regular;
+
+      &.current {
+        color: white;
+        font-weight: $bold;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
     }
   }
 

@@ -5,7 +5,6 @@ exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === "Mdx") {
     const publishDate = node.frontmatter.date
     const isScheduledPost = !publishDate || new Date(publishDate).getTime() > Date.now()
-    console.log(isScheduledPost)
     createNodeField({
       name: "slug",
       node,
