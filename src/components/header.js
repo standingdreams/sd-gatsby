@@ -29,9 +29,9 @@ const Header = props => {
                       <Link to="/portfolio">Portfolio</Link>
                     </li>
                     <li>
-                      <a href="https://medium.com/@standingdreams" target="_blank" rel="noopener noreferrer">
+                      <Link to="/writings">
                         Writings
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </nav>
@@ -68,14 +68,9 @@ const Header = props => {
               <Link to="/portfolio">Portfolio</Link>
             </li>
             <li>
-              <a href="/" target="_blank" rel="noopener noreferrer">
+              <Link to="/writings">
                 Writings
-              </a>
-            </li>
-            <li>
-              <a href="/" target="_blank" rel="noopener noreferrer">
-                Lifestyle
-              </a>
+              </Link>
             </li>
           </ul>
           <ul className="mobile-social">

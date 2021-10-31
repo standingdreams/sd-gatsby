@@ -6,8 +6,8 @@
   }
 
   &__header {
-    max-width: 620px;
     margin-bottom: 2em;
+    max-width: 620px;
   }
 
   &__date {
@@ -17,30 +17,44 @@
   }
 
   &__heading {
-    line-height: 1.25em;
     font-weight: 600;
     letter-spacing: -0.5px;
+    line-height: 1.25em;
   }
 
   &__content {
+    h2 {
+      color: whitesmoke;
+      font-weight: $bold;
+      margin-top: 65px;
+
+      @include to_em(26px);
+    }
+
     p {
       max-width: 620px;
 
       code {
         background-color: darken($brand, 15%);
+        border-radius: 0.3em;
         font-size: 0.9em;
         padding: 0 5px;
+        white-space: normal;
       }
     }
 
+    ul {
+      margin: 0 0 1em;
+    }
+
     figure {
-      margin-bottom: 1em;
       display: block;
+      margin-bottom: 1em;
 
       @include mappy-bp(tablet-vert) {
-        position: relative;
         margin: 1em 0 2em;
         padding-left: 50px;
+        position: relative;
 
         &::before {
           background-color: $text;
@@ -62,12 +76,54 @@
         width: 100%;
 
         @include mappy-bp(tablet-vert) {
-          width: 680px;
           position: relative;
+          width: 680px;
           z-index: 1;
         }
       }
     }
+
+    hr {
+      margin: 35px 0;
+      max-width: 620px;
+    }
+  }
+
+  &__toc {
+    background-color: $text;
+    border-radius: 8px;
+    display: block;
+    max-width: 620px;
+    padding: 20px;
+
+    p {
+      font-weight: $bold;
+    }
+
+    a {
+      color: whitesmoke;
+      font-weight: $regular;
+
+      &.current {
+        color: white;
+        font-weight: $bold;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .code-toolbar {
+    max-width: 620px;
   }
 
   pre {
@@ -78,6 +134,7 @@
     max-width: 620px;
     overflow-x: auto;
     padding: 20px;
+    position: relative;
     white-space: pre-wrap;
   }
 }

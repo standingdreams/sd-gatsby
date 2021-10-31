@@ -1,12 +1,12 @@
 import React from "react"
-import { Link, graphql,useStaticQuery } from 'gatsby';
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
-import ProfileInterests from '../components/ProfileInterests';
-import ContactBlock from '../components/contactBlock';
+import ProfileInterests from "../components/ProfileInterests"
+import ContactBlock from "../components/contactBlock"
 
 export default function IndexPage() {
-  const {allPrismicHome} = useStaticQuery(graphql`
+  const { allPrismicHome } = useStaticQuery(graphql`
     {
       allPrismicHome {
         nodes {
@@ -40,8 +40,8 @@ export default function IndexPage() {
       }
     }
   `)
-  const {text_above_name, intro_paragraph, capabilities, current_interests,
-    other_interests} = allPrismicHome.nodes[0].data
+  const { text_above_name, intro_paragraph, capabilities, current_interests, other_interests } =
+    allPrismicHome.nodes[0].data
   return (
     <Layout title="Home">
       <div className="profile-wrapper">
@@ -50,8 +50,10 @@ export default function IndexPage() {
             <div className="profile__aboutWrap">
               <h1 className="el-h2">{text_above_name}</h1>
               <h2 className="el-h1">Douglas Rogers</h2>
-              <div dangerouslySetInnerHTML={{__html: intro_paragraph.html}}></div>
-              <Link className="btn btn3" to="/portfolio">View Portfolio</Link>
+              <div dangerouslySetInnerHTML={{ __html: intro_paragraph.html }} />
+              <Link className="btn btn3" to="/portfolio">
+                View Portfolio
+              </Link>
             </div>
           </div>
         </div>
@@ -72,14 +74,8 @@ export default function IndexPage() {
         <div className="profile__block profile__block--last">
           <div className="container">
             <div className="profile__grid">
-              <ProfileInterests
-                heading="Current Interests"
-                items={current_interests}
-               />
-              <ProfileInterests
-                heading="Other Interests"
-                items={other_interests}
-              />
+              <ProfileInterests heading="Current Interests" items={current_interests} />
+              <ProfileInterests heading="Other Interests" items={other_interests} />
             </div>
           </div>
         </div>
@@ -87,4 +83,3 @@ export default function IndexPage() {
     </Layout>
   )
 }
-

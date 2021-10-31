@@ -1,0 +1,75 @@
+---
+path: "/heroku-vs-digitalocean/getting-started-with-digitalocean"
+date: "2018-02-28"
+title: "Heroku vs DigitalOcean: Getting Started with DigitalOcean"
+---
+
+import { Link } from "gatsby"
+
+<div className="blog__toc">
+  <p>The Experiment's Table of Contents</p>
+  <ul>
+    <li><Link to="/writings/heroku-vs-digitalocean/an-experiment-in-the-making">Part 1: An Experiment in the Making</Link></li>
+    <li><Link class="current" to="/writings/heroku-vs-digitalocean/getting-started-with-digitalocean">Part 2: Getting Started with DigitalOcean</Link></li>
+    <li><Link to="/writings/heroku-vs-digitalocean/handling-redirects-with-digitalocean">Part 3: Handling Redirects with DigialOcean</Link></li>
+    <li><Link to="/writings/heroku-vs-digitalocean/the-experiment-continues">Part 4: The Experiment Continues</Link></li>
+    <li><Link to="/writings/heroku-vs-digitalocean/deploying-to-heroku">Part 5: Deploy to Heroku</Link></li>
+  </ul>
+</div>
+
+---
+
+The Experiment's Table of Contents
+Part 1: An Experiment in the Making
+Part 2: Getting Started with DigitalOcean
+Part 3: Handling Redirects with DigialOcean
+Part 4: The Experiment Continues
+Part 5: Deploy to Heroku
+
+The reason I'm getting started with this project is because I ran across this Chrome extension that does a variety of audits on your websites including SEO, security and performance. I got a 35% in the security department. While trying to figure out ways to increase that score, I realized how little I was able to do that with my MediaTemple GridContainer. I contacted MediaTemple to ask how I could alter the `httpd.conf` file and they told me I didn't have access to the root because I was on shared hosting. Unacceptable.
+
+Between [DigitalOcean](https://m.do.co/c/0d5110e21375) (I will refer to DigitalOcean as DO from here on) and Heroku, DO is definitely the platform that gives me the most control over my server. As I mentioned in the previous post, DigitalOcean is an IaaS, so they give us a server and leaves it up to me to decide upon and make use of other software to setup, interact, maintain and deploy code to the server. If I want a LAMP stack, then I must decide what version of Ubuntu to use, install Apache, setup a firewall, install MySQL, install PHP and its various components and PHPMyAdmin.
+
+Luckily, DO provides [great documentation](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04) to help you get off the ground with all of this. I had no problems following the steps and had my server up and running with in x. If working in the command line gives you the heebie jeebies, then first off you may not want to explore this project. You will be all up and through the command line working with DO so just stay away. Secondly, DO makes it easy for you by providing one-click apps that have a variety of pre-configured applications for you to use, including LEAN stack, WordPress, MongoDB and PHPMyAdmin. The command line makes me feel like I'm in the Matrix so I'm starting from the bottom floor of it all and installing every single thing by myself.
+
+<figure>
+  <img src="https://thepracticaldev.s3.amazonaws.com/i/0xpq8s7qpakbyn9b8k99.png" />
+</figure>
+
+DO has superb documentation on how to do everything from [creating your first Droplet](https://docs.digitalocean.com/products/droplets/how-to/create/) to [installing Linux, Apache, MySQL and PHP on on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04). I decided to run with Ubuntu 16.04.3. DO has version 17.10 available but after some research, there wasn't much of a difference and the documentation uses 16.04.3 so I kept it that way for consistency. I'm not going to get into too much details of my set up because it was pretty basic for setting up this experiment. I figured that I'd start low and scale up if I need to, [which DO makes possible](https://docs.digitalocean.com/products/droplets/how-to/resize/).
+
+The one challenging part that I came across was installing PHP packages. I had to do a little digging on what packages would be necessary for WordPress as a base to start off with. My logic was if I start there I would have a solid foundation. But if anything breaks…meh, it's my site. For those looking for this answer, these are the PHP packages I ended up installing:
+- php7.0-cgi
+- php7.0-cli
+- php-dev
+- php-all-dev
+- php7.0-mysql
+- php7.0-xmlrpc
+- php7.0-curl
+- php7.0-gd
+- php-apcu
+- php-pear
+- php7.0-pspell
+
+Make sure that you are using PHP7 or else you'll need a different set of packages.
+
+Once I was done with installing all those packages, I moved on to database management. I was going to use PHPMyAdmin but figured I could rely on good ole' [Sequel Pro](https://sequelpro.com/). That would be one less thing I have to install and secure. Just note the MySQL Host and SSH Host are your Droplet's IP Address and Sequel Pro automatically checks for the usual location `~/.ssh` for SSH Keys. If you have it in a custom location, you'll need to point Sequel Pro there.
+
+From Sequel Pro, I created a database user and created a database for WordPress and [Perch](https://grabaperch.com/ref/roger6/). Note: if you want to connect to Sequel Pro with that new database user, the Username and Password is the new database user's name and it's password while the SSH Host and SSH User is still the root server user. In the tutorial, it recommends you create a different server user than root and I recommend you use that server user. I know…that's a tad confusing but it will make sense once you go thru all the documentations. I may just create a separate post.
+
+After the database was all ready, I uploaded my portfolio. I was met with this initially:
+
+<figure>
+  <img src="https://thepracticaldev.s3.amazonaws.com/i/nkty7cj3br5sxoidzd8u.png" />
+</figure>
+
+At this moment I'm thinking "OMG!!! What is happening?!?!"
+It took me a minute to discover the ["How To Install WordPress with LAMP on Ubuntu 16.04"](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-16-04) for some reason (read: I discovered it a while ago but did not follow the instructions) and that left me in the dark about enabling `.htaccess`, `mod_rewrite`, and disabling indexes. I figured it out eventually (again…followed the instructions properly) but it was painful before discovering that tutorial.
+
+After pulling my hair out and downing a bottle of whiskey, I finally had my portfolio up and running. Then I turned my attention to the WordPress blog. Let me say this: No one probably visits my WordPress blog. It is the first version of [Standing Dreams](https://www.standingdreams.com) and was like a music/lifestyle blog and my portfolio. BUT, for the purposes of this blog series, I wanted to maintain it and see what it takes to move from one service to the next.
+
+I got my portfolio up. I got my blog up. Now it's time to move on to the big move. I had to wait a few days because my domain was with Media Temple and I wanted to move it to Google Domains. After getting all that situated, it was a pretty easy move. I was able to install my [Let's Encrypt](https://letsencrypt.org/) SSL Certificate relatively easy as well. With Media Temple, I had to go thru a crazy process to install a SSL Certificate from Let's Encrypt. They also would not allow me to auto renew this SSL Certificate so every 90 days I was renewing my SSL Certificate.
+
+So far, so good. I definitely have full control over my server. I will keep you guys updated with challenges I face over the next few weeks.
+
+*Disclaimer: Some of the links provided in this article are referral links where I get bonus time on the services if you click and sign up.*
