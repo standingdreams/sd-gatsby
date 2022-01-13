@@ -51,7 +51,7 @@ portfolioItems:
       to rebrand the company, Inzone Brands, that had an awesome product, Tummy
       Ticklers. Not only did we rename the company good2grow, we also gave the
       company an entire new brand identity. This included a new website. I took
-      the lead on developing the company’s website. The site was developed out
+      the lead on developing the company's website. The site was developed out
       using PHP, CSS3, Javascript, and Perch CMS. The Wonderwall on the homepage
       is a custom API that pulls in various social media sources to output to
       the rotating cards.
@@ -79,7 +79,7 @@ portfolioItems:
       incontinence technologies. Being a leader in that technology space, they
       wanted an advanced website to compliment their brand. The website was
       developed on top of Perch CMS and featured a parallax-driven story on the
-      homepage speaking to the company’s vision.
+      homepage speaking to the company's vision.
 
 
       We were asked to deliver an updated experience to their current training portal that is used globally to educate various medical professionals on their incontinence technology. The portal can only be accessed via username/password. The training portal was built using Perch and includes quizzes, videos, custom certificates and various educational material for the user.

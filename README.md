@@ -15,7 +15,7 @@ Linting is handled by ![Wes Bos's No-Sweat Eslint and Prettier Setup](https://gi
 - [ ] TODO: Instructions on setting up VS Code for Linting and/or add lint NPM task.
 
 ## Environment
-Navigate into your new site’s directory and start it up.
+Navigate into your new site's directory and start it up.
 
 ```shell
 	cd my-default-starter/
