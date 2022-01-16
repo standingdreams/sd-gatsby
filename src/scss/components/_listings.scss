@@ -177,7 +177,7 @@
   &__role,
   &__copy,
   &__thumbnail {
-    opacity: 0;
+    opacity: 0%;
     position: relative;
     transition: ease all 0.3s;
   }
@@ -198,6 +198,7 @@
         cursor: pointer;
       }
 
+      iframe,
       img {
         border: 2px solid $brand;
         display: block;
@@ -205,6 +206,10 @@
         position: relative;
         width: 100%;
         z-index: 1;
+      }
+
+      iframe {
+        aspect-ratio: 16 / 9;
       }
 
       &::after {
@@ -252,17 +257,17 @@
 .show-listings-item {
   .listings-item__role {
     display: block;
-    opacity: 1;
+    opacity: 100%;
     transform: translateY(0);
 
     @keyframes slideDownFirst {
       0% {
-        opacity: 0;
+        opacity: 0%;
         transform: translateY(20px);
       }
 
       100% {
-        opacity: 1;
+        opacity: 100%;
         transform: translateY(0);
       }
     }
@@ -272,17 +277,17 @@
 
   .listings-item__copy {
     display: block;
-    opacity: 1;
+    opacity: 100%;
     transform: translateY(0);
 
     @keyframes slideDownSecond {
       0% {
-        opacity: 0;
+        opacity: 0%;
         transform: translateY(20px);
       }
 
       100% {
-        opacity: 1;
+        opacity: 100%;
         transform: translateY(0);
       }
     }
@@ -292,18 +297,18 @@
 
   .listings-item__thumbnail {
     display: block;
-    opacity: 1;
+    opacity: 100%;
     right: 0;
     transform: translateX(0);
 
     @keyframes slideRight {
       0% {
-        opacity: 0;
+        opacity: 0%;
         transform: translateX(20px);
       }
 
       100% {
-        opacity: 1;
+        opacity: 100%;
         transform: translateX(0);
       }
     }

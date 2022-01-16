@@ -1,0 +1,62 @@
+{
+  "Main": {
+    "page_heading": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Page Heading"
+      }
+    },
+    "page_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,embed,list-item,o-list-item",
+        "allowTargetBlank": true,
+        "label": "Page Content"
+      }
+    },
+    "films": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "film_name": {
+            "type": "StructuredText",
+            "config": {
+              "single": "heading2",
+              "label": "Film Name"
+            }
+          },
+          "role": {
+            "type": "Text",
+            "config": {
+              "label": "Role"
+            }
+          },
+          "project_descripton": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item",
+              "allowTargetBlank": true,
+              "label": "Project Descripton"
+            }
+          },
+          "video_id": {
+            "type": "Text",
+            "config": {
+              "label": "Video ID"
+            }
+          },
+          "site_thumbnail": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Site Thumbnail"
+            }
+          }
+        },
+        "label": "Films"
+      }
+    }
+  }
+}

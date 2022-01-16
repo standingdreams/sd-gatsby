@@ -29,6 +29,9 @@ const Header = props => {
                       <Link to="/portfolio">Portfolio</Link>
                     </li>
                     <li>
+                      <Link to="/film">Film Lab</Link>
+                    </li>
+                    <li>
                       <Link to="/writings">
                         Writings
                       </Link>
