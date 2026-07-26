@@ -25,9 +25,9 @@ const Header = props => {
                     <li>
                       <Link to="/">Home</Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link to="/portfolio">Portfolio</Link>
-                    </li>
+                    </li> */}
                     <li>
                       <Link to="/film">Film Lab</Link>
                     </li>
@@ -67,9 +67,9 @@ const Header = props => {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/portfolio">Portfolio</Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/writings">
                 Writings

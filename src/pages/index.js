@@ -51,9 +51,9 @@ export default function IndexPage() {
               <h1 className="el-h2">{text_above_name}</h1>
               <h2 className="el-h1">Douglas Rogers</h2>
               <div dangerouslySetInnerHTML={{ __html: intro_paragraph.html }} />
-              <Link className="btn btn3" to="/portfolio">
+              {/* <Link className="btn btn3" to="/portfolio">
                 View Portfolio
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
